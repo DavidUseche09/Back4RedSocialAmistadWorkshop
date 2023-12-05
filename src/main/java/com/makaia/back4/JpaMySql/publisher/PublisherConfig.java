@@ -7,12 +7,11 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class PublisherConfig {
-    @Value("${redSocial.rabbit.queue.crearUsuario}")
-    private String name;
+    @Value("${redSocial.rabbit.queue.crearAmistad}")
+    private String amistadQueueName;
 
     @Bean
-    public Queue queue() {
-        return new Queue(this.name);
+    public Queue amistadQueue() {
+        return new Queue(amistadQueueName);
     }
-
 }

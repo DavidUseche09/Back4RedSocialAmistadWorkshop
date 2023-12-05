@@ -53,17 +53,6 @@ public class Usuario {
         return edad;
     }
 
-    public List<Publicacion> getPublicaciones() {
-        return publicaciones;
-    }
-
-    public List<Mensaje> getMensajesEnviados() {
-        return mensajesEnviados;
-    }
-
-    public List<Mensaje> getMensajesRecibidos() {
-        return mensajesRecibidos;
-    }
 
     public List<Amistad> getSolicitudasEnviadas() {
         return solicitudasEnviadas;
@@ -73,18 +62,6 @@ public class Usuario {
         return solicitudasRecibidas;
     }
 
-    public List<Comentario> getComentarios() {
-        return comentarios;
-    }
-
-    @OneToMany(mappedBy = "usuario")
-    List<Publicacion> publicaciones;
-
-    @OneToMany(mappedBy = "emisor")
-    List<Mensaje> mensajesEnviados;
-
-    @OneToMany(mappedBy = "receptor")
-    List<Mensaje> mensajesRecibidos;
 
     @OneToMany(mappedBy = "solicitante")
     List<Amistad> solicitudasEnviadas;
@@ -92,8 +69,6 @@ public class Usuario {
     @OneToMany(mappedBy = "solicitado")
     List<Amistad> solicitudasRecibidas;
 
-    @OneToMany(mappedBy = "usuario")
-    List<Comentario> comentarios;
 
     @Override
     public String toString() {
