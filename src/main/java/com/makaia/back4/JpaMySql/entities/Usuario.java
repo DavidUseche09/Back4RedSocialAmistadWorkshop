@@ -33,6 +33,10 @@ public class Usuario {
         this.edad = edad;
     }
 
+    public Usuario(Long id) {
+        this.id = id;
+    }
+
     public Long getId() {
         return id;
     }
@@ -52,16 +56,6 @@ public class Usuario {
     public Integer getEdad() {
         return edad;
     }
-
-
-    public List<Amistad> getSolicitudasEnviadas() {
-        return solicitudasEnviadas;
-    }
-
-    public List<Amistad> getSolicitudasRecibidas() {
-        return solicitudasRecibidas;
-    }
-
 
     @OneToMany(mappedBy = "solicitante")
     List<Amistad> solicitudasEnviadas;

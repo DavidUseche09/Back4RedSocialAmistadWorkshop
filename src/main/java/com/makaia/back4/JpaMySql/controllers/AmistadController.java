@@ -19,7 +19,7 @@ public class AmistadController {
     }
 
     @PostMapping()
-    public Amistad crearAmistad(@RequestBody CrearDTO dto) {
+    public Amistad crear(@RequestBody CrearDTO dto) {
         return this.service.crear(dto);
     }
 
@@ -41,5 +41,10 @@ public class AmistadController {
     @DeleteMapping("/{id}")
     public void eliminarAmistad(@PathVariable Long id) {
         this.service.eliminar(id);
+    }
+
+    @PutMapping("/aceptar/{id}")
+    public Amistad aceptarAmistad(@PathVariable Long id, @RequestBody CrearDTO dto) {
+        return this.service.aceptarAmistad(id, dto);
     }
 }

@@ -77,6 +77,18 @@ public class AmistadService {
         Amistad amistadExistente = obtener(id);
         this.repository.delete(amistadExistente);
     }
+
+    public Amistad aceptarAmistad(Long solicitanteId, CrearDTO dto) {
+        Amistad amistadPendiente = repository
+                .findBySolicitanteAndSolicitado(new Usuario(solicitanteId), new Usuario(dto.getSolicitadoId()));
+
+        if (amistadPendiente != null) {
+            amistadPendiente.setAceptado(true);
+            return repository.save(amistadPendiente);
+        } else {
+            throw new RedSocialApiException("No se encontró ninguna solicitud de amistad pendiente para aceptar.");
+        }
+    }
 }
 
 
